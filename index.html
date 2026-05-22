@@ -22,9 +22,9 @@
        </div>
 
         <div class="coin-input-container">
-          <label for="cryto">ELIGE TU CRYPTOMONEDA:</label>
-          <!-- CORRECCIÓN: Cambiado id="coin" a id="cryto" para que tu JS lo encuentre -->
-          <select class="coin-input" id="cryto">
+          <label for="crypto">ELIGE TU CRYPTOMONEDA:</label>
+         <!-- Cambia 'cryto' por 'crypto' -->
+            <select class="coin-input" id="crypto">
             <option selected value="BTC">Bitcoin</option>
             <option value="ETH">Ethereum</option>
             <option value="AXS">AXS</option>
@@ -37,11 +37,11 @@
            <input type="text" class="coin-input" id="amount" placeholder="Monto">
         </div> 
 
-        <!-- CORRECCIÓN: Le quité el id="amount" al botón para que no choque con el input -->
+        
         <button type="submit">Cotizar</button>
         
         <div id="coin-inf">
-          <!-- CORRECCIÓN: Arreglé las etiquetas <spam> a <span> y cerré bien los <p> -->
+        
           <p class="info">el precio mas alto es:<span class="price">1488$</span></p>
           <p class="info">el precio mas bajo es:<span class="price">1488$</span></p>
           <p class="info">Varacion 24h es:<span class="price">1488$</span></p>
@@ -49,6 +49,7 @@
         </div>
         </form>
     </div>
+    
 
     <script src="javascript.js"></script>
 </body>
