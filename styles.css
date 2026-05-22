@@ -1,0 +1,183 @@
+/* ==========================================================================
+   Variables de Estilo - Inspiración: Dark Fantasy & Hip-Hop Streetwear
+   ========================================================================== */
+:root {
+    --bg-dark: #0a0a0e;       /* Fondo oscuro profundo (Fantasía mística) */
+    --bg-card: #12121a;       /* Fondo de la tarjeta contenedor */
+    --border-glow: #2b2b3d;   /* Borde base */
+    --accent-neon: #9d4edd;   /* Violeta neón / Magia oscura */
+    --accent-gold: #ffb703;   /* Oro / Cadena de Hip-Hop / Crypto */
+    --text-main: #f8f9fa;     /* Blanco limpio para textos principales */
+    --text-muted: #8d99ae;    /* Gris apagado para labels */
+    --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Reset Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-main);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    /* Un sutil patrón de fondo tipo asfalto o calabozo */
+    background-image: radial-gradient(circle at 50% 50%, #1a1a26 0%, #0a0a0e 100%);
+}
+
+/* Contenedor Principal */
+.container {
+    background-color: var(--bg-card);
+    border: 2px solid var(--border-glow);
+    border-radius: 12px;
+    padding: 2.5rem;
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.7), 
+                0 0 20px rgba(157, 78, 221, 0.05); /* Destello sutil violeta */
+}
+
+/* Diseño Responsive en Escritorio (Layout Limpio) */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        align-items: stretch;
+    }
+    
+    .container img {
+        width: 45%;
+        object-fit: contain;
+    }
+    
+    #coin-form {
+        width: 55%;
+    }
+}
+
+/* Imagen con vibra mística */
+.container img {
+    max-width: 280px;
+    filter: drop-shadow(0 0 15px rgba(157, 78, 221, 0.3));
+}
+
+/* Formulario */
+#coin-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+/* Bloques de Input */
+.coin-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Labels: Estilo tipográfico crudo y directo (Hip-Hop/Tech) */
+.coin-input-container label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+/* Inputs y Selects limpios pero agresivos */
+.coin-input {
+    background-color: #1a1a26;
+    border: 2px solid var(--border-glow);
+    color: var(--text-main);
+    padding: 0.8rem 1rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    outline: none;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+/* Efecto Focus: El neón entra en acción */
+.coin-input:focus {
+    border-color: var(--accent-neon);
+    box-shadow: 0 0 10px rgba(157, 78, 221, 0.4);
+}
+
+/* Botón de Acción Principal (El "Graffiti/Poder" del diseño) */
+#form-btn {
+    background: linear-gradient(135deg, var(--accent-neon) 0%, #7b2cbf 100%);
+    color: var(--text-main);
+    border: none;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: transform 0.1s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(157, 78, 221, 0.4);
+}
+
+#form-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(157, 78, 221, 0.6);
+}
+
+#form-btn:active {
+    transform: translateY(1px);
+}
+
+/* ==========================================================================
+   Sección de Resultados (Coin-Info)
+   ========================================================================== */
+#coin-inf {
+    background-color: #0b0b11;
+    border-left: 4px solid var(--accent-gold); /* Detalle de contraste pesado */
+    padding: 1.2rem;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 1rem;
+}
+
+.info {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed #222233;
+    padding-bottom: 0.4rem;
+}
+
+.info:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-top: 0.2rem;
+}
+
+/* Resaltado de Precios (El toque Oro/Crypto) */
+.price {
+    color: var(--accent-gold);
+    font-family: 'Courier New', Courier, monospace; /* Toque técnico/hacker */
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-shadow: 0 0 8px rgba(255, 183, 3, 0.3);
+}
