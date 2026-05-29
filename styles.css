@@ -234,3 +234,31 @@ body {
     opacity: 0;
   }
 }
+
+ .loader:before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  border-bottom: 0 solid rgba(189, 0, 255, 0.05);
+  
+  /* Capas de sombras modificadas para el efecto neón */
+  box-shadow: 
+    0 -10px 20px 20px rgba(189, 0, 255, 0.25) inset, /* Resplandor interno base */
+    0 -5px 15px 10px rgba(189, 0, 255, 0.4) inset,   /* Brillo interno medio */
+    0 -2px 5px rgba(243, 232, 255, 0.7) inset,       /* Núcleo interno iluminado */
+    0 -3px 2px rgba(255, 255, 255, 0.9) inset,       /* Centro del tubo de neón (blanco) */
+    0 2px 0px #ffffff,                                /* Filamento brillante externo */
+    0 2px 3px #bd00ff,                                /* Destello morado inmediato */
+    0 5px 5px rgba(189, 0, 255, 0.8),                /* Aura neón cercana */
+    0 10px 15px rgba(189, 0, 255, 0.5),              /* Dispersión de luz media */
+    0 10px 20px 20px rgba(189, 0, 255, 0.3);         /* Gran resplandor ambiental */
+    
+  filter: blur(2px); /* Bajé a 2px para que el núcleo blanco se note más definido */
+  animation: 2s rotate linear infinite;
+}
+
+@keyframes rotate {
+  100% { transform: rotate(360deg); }
+}
