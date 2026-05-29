@@ -32,42 +32,27 @@ body {
     background-image: radial-gradient(circle at 50% 50%, #1a1a26 0%, #0a0a0e 100%);
 }
 
-/* Contenedor Principal */
+/* Contenedor Principal (Mobile First) */
 .container {
     background-color: var(--bg-card);
     border: 2px solid var(--border-glow);
     border-radius: 12px;
-    padding: 2.5rem;
+    padding: 1.5rem; /* Reducido en móvil para ganar espacio */
     max-width: 900px;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.7), 
                 0 0 20px rgba(157, 78, 221, 0.05); /* Destello sutil violeta */
 }
 
-/* Diseño Responsive en Escritorio (Layout Limpio) */
-@media (min-width: 768px) {
-    .container {
-        flex-direction: row;
-        align-items: stretch;
-    }
-    
-    .container img {
-        width: 45%;
-        object-fit: contain;
-    }
-    
-    #coin-form {
-        width: 55%;
-    }
-}
-
 /* Imagen con vibra mística */
 .container img {
-    max-width: 280px;
+    width: 100%;
+    max-width: 220px; /* Un poco más pequeña en móvil para no comerse la pantalla */
+    height: auto;
     filter: drop-shadow(0 0 15px rgba(157, 78, 221, 0.3));
 }
 
@@ -76,7 +61,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 1.2rem;
     width: 100%;
 }
 
@@ -87,7 +72,7 @@ body {
     gap: 0.5rem;
 }
 
-/* Labels: Estilo tipográfico crudo y directo (Hip-Hop/Tech) */
+/* Labels: Estilo tipográfico crudo y directo */
 .coin-input-container label {
     font-size: 0.75rem;
     font-weight: 800;
@@ -116,13 +101,13 @@ body {
     box-shadow: 0 0 10px rgba(157, 78, 221, 0.4);
 }
 
-/* Botón de Acción Principal (El "Graffiti/Poder" del diseño) */
+/* Botón de Acción Principal */
 #form-btn {
     background: linear-gradient(135deg, var(--accent-neon) 0%, #7b2cbf 100%);
     color: var(--text-main);
     border: none;
     padding: 1rem;
-    font-size: 1.1rem;
+    font-size: 1rem; /* Ajustado para que no rompa en pantallas pequeñas */
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -131,6 +116,7 @@ body {
     margin-top: 0.5rem;
     transition: transform 0.1s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 15px rgba(157, 78, 221, 0.4);
+    width: 100%;
 }
 
 #form-btn:hover {
@@ -147,17 +133,18 @@ body {
    ========================================================================== */
 #coin-inf {
     background-color: #0b0b11;
-    border-left: 4px solid var(--accent-gold); /* Detalle de contraste pesado */
-    padding: 1.2rem;
+    border-left: 4px solid var(--accent-gold);
+    padding: 1rem;
     border-radius: 4px;
     display: flex;
     flex-direction: column;
     gap: 0.6rem;
     margin-top: 1rem;
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
 }
 
 .info {
-    font-size: 0.9rem;
+    font-size: 0.85rem; /* Un poco más compacto en móvil */
     color: var(--text-muted);
     font-weight: 500;
     display: flex;
@@ -165,6 +152,7 @@ body {
     align-items: center;
     border-bottom: 1px dashed #222233;
     padding-bottom: 0.4rem;
+    gap: 10px; /* Evita que el texto y el precio se peguen bruscamente */
 }
 
 .info:last-child {
@@ -173,92 +161,133 @@ body {
     margin-top: 0.2rem;
 }
 
-/* Resaltado de Precios (El toque Oro/Crypto) */
+/* Resaltado de Precios */
 .price {
     color: var(--accent-gold);
-    font-family: 'Courier New', Courier, monospace; /* Toque técnico/hacker */
+    font-family: 'Courier New', Courier, monospace;
     font-weight: 700;
-    font-size: 1.05rem;
+    font-size: 1rem;
     text-shadow: 0 0 8px rgba(255, 183, 3, 0.3);
+    text-align: right;
+    word-break: break-all; /* Evita que precios gigantes rompan el diseño */
+}
+
+/* ==========================================================================
+   Loader (Arreglado para evitar desbordamiento)
+   ========================================================================== */
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 2rem 0;
+    overflow: hidden; /* Evita el scroll horizontal por la animación blast */
 }
 
 .loader {
-  width: 48px;
-  height: 48px;
-  position: relative;
+    width: 48px;
+    height: 48px;
+    position: relative;
 }
-.loader::before , .loader::after{
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50% , -50%);
-  width: 48em;
-  height: 48em;
-  background-image:
-    radial-gradient(circle 10px, #FFF 100%, transparent 0),
-    radial-gradient(circle 10px, #FFF 100%, transparent 0),
-    radial-gradient(circle 10px, #FFF 100%, transparent 0),
-    radial-gradient(circle 10px, #FFF 100%, transparent 0),
-    radial-gradient(circle 10px, #FFF 100%, transparent 0),
-    radial-gradient(circle 10px, #FFF 100%, transparent 0),
-    radial-gradient(circle 10px, #FFF 100%, transparent 0),
-    radial-gradient(circle 10px, #FFF 100%, transparent 0);
-  background-position: 0em -18em, 0em 18em, 18em 0em, -18em 0em,
-                       13em -13em, -13em -13em, 13em 13em, -13em 13em;
+
+.loader::before, .loader::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+    /* Cambiado de 48em a un tamaño basado en el contenedor para que no rompa el viewport */
+    width: 48px; 
+    height: 48px;
+    background-image:
+      radial-gradient(circle 2px, #FFF 100%, transparent 0),
+      radial-gradient(circle 2px, #FFF 100%, transparent 0),
+      radial-gradient(circle 2px, #FFF 100%, transparent 0),
+      radial-gradient(circle 2px, #FFF 100%, transparent 0),
+      radial-gradient(circle 2px, #FFF 100%, transparent 0),
+      radial-gradient(circle 2px, #FFF 100%, transparent 0),
+      radial-gradient(circle 2px, #FFF 100%, transparent 0),
+      radial-gradient(circle 2px, #FFF 100%, transparent 0);
+    /* Ajustadas las posiciones fijas en px para mantener la proporción mística */
+    background-position: 0px -18px, 0px 18px, 18px 0px, -18px 0px,
+                         13px -13px, -13px -13px, 13px 13px, -13px 13px;
     background-repeat: no-repeat;
-  font-size: 0.5px;
-  border-radius: 50%;
-  animation: blast 1s ease-in infinite;
+    font-size: 0.5px;
+    border-radius: 50%;
+    animation: blast 1s ease-in infinite;
 }
+
 .loader::after {
-  font-size: 1px;
-  background: #fff;
-  animation: bounce 1s ease-in infinite;
+    font-size: 1px;
+    background: #fff;
+    animation: bounce 1s ease-in infinite;
 }
 
 @keyframes bounce {
-  0% , 100%{ font-size: 0.75px }
-  50% { font-size: 1.5px }
-}
-@keyframes blast {
-  0% , 40% {
-    font-size: 0.5px;
-  }
-  70% {
-    opacity: 1;
-    font-size: 4px;
-  }
-   100% {
-     font-size: 6px;
-    opacity: 0;
-  }
+    0% , 100%{ font-size: 0.75px }
+    50% { font-size: 1.5px }
 }
 
- .loader:before {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 100%;
-  border-radius: 100%;
-  border-bottom: 0 solid rgba(189, 0, 255, 0.05);
-  
-  /* Capas de sombras modificadas para el efecto neón */
-  box-shadow: 
-    0 -10px 20px 20px rgba(189, 0, 255, 0.25) inset, /* Resplandor interno base */
-    0 -5px 15px 10px rgba(189, 0, 255, 0.4) inset,   /* Brillo interno medio */
-    0 -2px 5px rgba(243, 232, 255, 0.7) inset,       /* Núcleo interno iluminado */
-    0 -3px 2px rgba(255, 255, 255, 0.9) inset,       /* Centro del tubo de neón (blanco) */
-    0 2px 0px #ffffff,                                /* Filamento brillante externo */
-    0 2px 3px #bd00ff,                                /* Destello morado inmediato */
-    0 5px 5px rgba(189, 0, 255, 0.8),                /* Aura neón cercana */
-    0 10px 15px rgba(189, 0, 255, 0.5),              /* Dispersión de luz media */
-    0 10px 20px 20px rgba(189, 0, 255, 0.3);         /* Gran resplandor ambiental */
-    
-  filter: blur(2px); /* Bajé a 2px para que el núcleo blanco se note más definido */
-  animation: 2s rotate linear infinite;
+@keyframes blast {
+    0% , 40% { font-size: 0.5px; }
+    70% { opacity: 1; font-size: 4px; }
+    100% { font-size: 6px; opacity: 0; }
+}
+
+.loader:before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    border-bottom: 0 solid rgba(189, 0, 255, 0.05);
+    box-shadow: 
+      0 -10px 20px 20px rgba(189, 0, 255, 0.25) inset, 
+      0 -5px 15px 10px rgba(189, 0, 255, 0.4) inset,   
+      0 -2px 5px rgba(243, 232, 255, 0.7) inset,       
+      0 -3px 2px rgba(255, 255, 255, 0.9) inset,       
+      0 2px 0px #ffffff,                                
+      0 2px 3px #bd00ff,                                
+      0 5px 5px rgba(189, 0, 255, 0.8),                
+      0 10px 15px rgba(189, 0, 255, 0.5),              
+      0 10px 20px 20px rgba(189, 0, 255, 0.3);         
+    filter: blur(2px); 
+    animation: rotate 2s linear infinite;
 }
 
 @keyframes rotate {
-  100% { transform: rotate(360deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   Diseño Responsive (Escritorio / Tablets Grandes)
+   ========================================================================== */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        align-items: stretch;
+        padding: 2.5rem;
+        gap: 2rem;
+    }
+    
+    .container img {
+        width: 45%;
+        max-width: 280px;
+    }
+    
+    #coin-form {
+        width: 55%;
+    }
+
+    #form-btn {
+        font-size: 1.1rem;
+    }
+
+    .info {
+        font-size: 0.9rem;
+    }
+
+    .price {
+        font-size: 1.05rem;
+    }
 }
